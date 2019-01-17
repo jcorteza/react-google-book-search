@@ -1,0 +1,138 @@
+nav {
+  background-color: #f9c411;
+  padding: 1rem 0;
+}
+
+nav h2 {
+  display: inline;
+  margin: 0 2vw;
+  font-size: 1.25rem;
+  color: white;
+}
+
+nav a {
+  margin: 0 2vw;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+}
+nav a:hover {
+  background-color: #33658A;
+  height: 100%;
+}
+nav a:visited {
+  color: #33658A;
+}
+
+header h1 {
+  font-size: 7vw;
+  text-align: center;
+  color: white;
+  padding: 12% 0 3%;
+  text-shadow: 5px 5px 30px black;
+}
+
+header p {
+  font-size: 3vw;
+  text-align: center;
+  color: white;
+  text-shadow: 5px 5px 30px black;
+}
+
+h3 {
+  font-size:3vw;
+}
+
+#searchContainer, #resultsContainer {
+  color: white;
+  background-color: #33658A;
+  padding: 2vw;
+  margin: 2vw;
+  font-size: 3vw;
+}
+
+form {
+  padding: 3.5vw 0;
+  position: relative;
+}
+
+label {
+  font-size: 2.5vw;
+}
+
+input {
+  margin: 1vw 0;
+  width: 98%;
+  padding: .75vw;
+  font-size: 1.25vw;
+}
+
+button {
+  border-radius: 0;
+  border: none;
+  background-color:  #f9c411;
+  color: white;
+  padding: .75vw;
+  font-size: 1.25vw;
+}
+
+form button {
+  position: absolute;
+  right: 0;
+}
+
+#resultsContainer {
+  font-size: 1rem;
+}
+
+#resultsContainer h3 {
+  margin-bottom: 3.5vw;
+}
+
+.bookResult {
+  background-color: white;
+  color: black;
+  padding: 1.75vw;
+}
+
+.bookResult:not(:last-of-type) {
+  margin-bottom: 2vw;
+}
+
+.bookResult h4 {
+  font-size: 2.5vw;
+  margin-bottom: 1vw;
+}
+
+.bookResult .row:first-of-type {
+  margin-bottom: 2vw;
+}
+
+.bookResult .row:nth-of-type(2) {
+  display: flex;
+}
+
+.bookResult img {
+  border: 1px solid red;
+  /* display: inline-block; */
+  box-sizing: border-box;
+  min-width: 100px;
+  min-height: 50px;
+}
+
+.aboutBook {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 75%;
+  padding: 0;
+  /* margin: 1.75vw 0 0 1.75vw; */
+}
+
+.btnDiv {
+  box-sizing: border-box;
+  float: right;
+}
+
+.btnDiv button:first-of-type {
+  margin-right: 1.75vw;
+}
