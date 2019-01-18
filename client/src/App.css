@@ -40,7 +40,7 @@ header p {
 }
 
 h3 {
-  font-size:3vw;
+  font-size: 1.5rem;
 }
 
 #searchContainer, #resultsContainer {
@@ -52,12 +52,12 @@ h3 {
 }
 
 form {
-  padding: 3.5vw 0;
+  padding: 1rem 0 1.5rem;
   position: relative;
 }
 
 label {
-  font-size: 2.5vw;
+  font-size: 1.25rem;
 }
 
 input {
@@ -93,6 +93,7 @@ form button {
   background-color: white;
   color: black;
   padding: 1.75vw;
+  font-size: 1rem;
 }
 
 .bookResult:not(:last-of-type) {
@@ -100,16 +101,12 @@ form button {
 }
 
 .bookResult h4 {
-  font-size: 2.5vw;
+  font-size: 1.25rem;
   margin-bottom: 1vw;
 }
 
 .bookResult .row:first-of-type {
-  margin-bottom: 2vw;
-}
-
-.bookResult .row:nth-of-type(2) {
-  display: flex;
+  margin-bottom: 1vw;
 }
 
 .bookResult img {
@@ -135,4 +132,11 @@ form button {
 
 .btnDiv button:first-of-type {
   margin-right: 1.75vw;
+}
+
+@media screen and (min-width: 480px) {
+  .bookResult .row:nth-of-type(2) {
+    display: flex;
+    align-items: flex-start;
+  }
 }
