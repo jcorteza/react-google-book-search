@@ -1,22 +1,26 @@
 import React from "react";
 
-function BookResult() {
+function BookResult(props) {
     return(
         <div className="bookResult">
             <div className="row">
                 <div className="aboutBook">
-                    <h4>This a Book Title</h4>
-                    <p>By: some author</p>
+                    <h4>{props.title}</h4>
+                    <p>By: {(props.authors)? props.authors.join(", "): "N/A"}</p>
                 </div>
                 <div className="btnDiv">
-                    <button type="button" name="view">View</button>
+                    {(props.link)? 
+                    <a href={props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view">View</button></a> : null}
                     <button type="button" name="save">Save</button>
                     {/* <button type="button" name="Delete">Delete</button> */}
                 </div>
             </div>
             <div className="row">
-                <img src="" alt="book"/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <img src={
+                    (props.img.smallThumbnail)? props.img.smallThumbnail:
+                    (props.img.thumbnail)? props.img.thumbnail: ""
+                } alt="book cover"/>
+                <p>{(props.description)? props.description: "N/A"}</p>
             </div>
         </div>
     );

@@ -1,14 +1,20 @@
 import React from "react";
 import BookResult from "../components/BookResult";
 
-function ResultsContainer() {
+function ResultsContainer(props) {
     return(
         <div id="resultsContainer">
             <h3>Results Found</h3>
-            {/* <h3>Saved Books</h3> */}
-            <BookResult />
-            <BookResult />
-            <BookResult />
+            {props.bookData.map((book) => {
+                const bookInfo = book.volumeInfo;
+                return <BookResult 
+                title={bookInfo.title} 
+                authors={bookInfo.authors} 
+                description={bookInfo.description} 
+                link={bookInfo.canonicalVolumeLink} 
+                img={bookInfo.imageLinks} 
+                key={book.id}/>
+            })}
         </div>
     );
 }

@@ -1,5 +1,5 @@
 require("dotenv").config();
-const fetchUrl = require("fetch").fetchUrl;
+const axios = require("axios");
 const db = require("../models");
 const path = require("path");
 
@@ -22,13 +22,15 @@ module.exports = function(app) {
         let bookTitle = req.body.title.replace(/\s/g, "+");
         console.log(`This is the value of bookTitle: ${bookTitle}`);
         console.log(`This is the value of key: ${process.env.GBOOKS_KEY}`);
-        fetchUrl(
-            `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`, (error, meta, body) => {
-                if(error) {
-                    res.json({error: error});
-                } else {
-                    res.json(body);
-                }
+        axios.get(
+            `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`
+        ).then(
+            (response) => {
+                res.json(response.data.items)
+            }
+        ).catch(
+            (err) => {
+                res.json({error: error})
             }
         );
     });
