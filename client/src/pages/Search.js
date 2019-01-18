@@ -25,6 +25,7 @@ class Search extends React.Component {
             .then(
                 (response) => {
                     this.setState({bookData: response.data});
+                    this.setState({bookInput: ""});
                 }
             );
     }
