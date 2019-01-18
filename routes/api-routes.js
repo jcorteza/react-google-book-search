@@ -1,3 +1,5 @@
+require("dotenv").config();
+const fetchUrl = require("fetch").fetchUrl;
 const db = require("../models");
 const path = require("path");
 
@@ -10,6 +12,23 @@ module.exports = function(app) {
         ).catch(
             (err) => {
                 res.json({error: err});
+            }
+        );
+    });
+
+    app.post("/search", (req, res) => {
+        console.log(`req.body.title value is ${req.body.title}`);
+        // set bookTitle to the req.body.title with spaces replaced with plus signs(+)
+        let bookTitle = req.body.title.replace(/\s/g, "+");
+        console.log(`This is the value of bookTitle: ${bookTitle}`);
+        console.log(`This is the value of key: ${process.env.GBOOKS_KEY}`);
+        fetchUrl(
+            `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`, (error, meta, body) => {
+                if(error) {
+                    res.json({error: error});
+                } else {
+                    res.json(body);
+                }
             }
         );
     });

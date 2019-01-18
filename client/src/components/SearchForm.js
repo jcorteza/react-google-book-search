@@ -1,4 +1,5 @@
 import React from "react";
+import API from "../utils/API";
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -17,20 +18,17 @@ class SearchForm extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        let bookTitle = this.state.bookInput;
-        console.log(`This is the value of bookTitle: ${bookTitle.replace(/\s/g, "+")}`);
-        console.log(`This is the value of key: ${process.env.GBOOKS_KEY}`);
-        fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=${bookTitle.replace(/\s/g, "+")}&key=${process.env.GBOOKS_KEY}`
-        ).then(
-            (response) => {
-                console.log(response);
-            }
-        ).catch(
-            (err) => {
-                console.log(`There was an error callling Google Books API: ${err}`);
-            }
-        );
+        API.searchBooks(this.state.bookInput)
+            .then(
+                (response) => {
+                    console.log("api.searchbooks was successful");
+                }
+            )
+            .catch(
+                (err) => {
+                    console.log("api.searchbooks was unsuccessful");
+                }
+            );
     }
 
     render(){
