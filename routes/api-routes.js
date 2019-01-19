@@ -17,11 +17,8 @@ module.exports = function(app) {
     });
 
     app.post("/search", (req, res) => {
-        console.log(`req.body.title value is ${req.body.title}`);
         // set bookTitle to the req.body.title with spaces replaced with plus signs(+)
         let bookTitle = req.body.title.replace(/\s/g, "+");
-        console.log(`This is the value of bookTitle: ${bookTitle}`);
-        console.log(`This is the value of key: ${process.env.GBOOKS_KEY}`);
         axios.get(
             `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`
         ).then(
@@ -36,20 +33,18 @@ module.exports = function(app) {
     });
 
     app.post("/api/books", (req, res) => {
-        console.log(`req.body value is ${JSON.parse(req.body)}`);
         db.Book.create(req.body).then(
             (response) => {
                 res.json({successful: response});
             }
         ).catch(
             (err) => {
-                rres.json({error: err});
+                res.json({error: err});
             }
         );
     });
 
     app.delete("/api/books/:id", (req, res) => {
-        console.log(`req.params.id value is ${req.params.id}`);
         db.Book.findByIdAndDelete(req.params.id).then(
             (response) => {
                 res.json({successful: response});

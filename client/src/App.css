@@ -70,7 +70,7 @@ input {
 button {
   border-radius: 0;
   border: none;
-  background-color:  #f9c411;
+  background-color: #f9c411;
   color: white;
   padding: .75vw;
   font-size: 1.25vw;
@@ -79,6 +79,10 @@ button {
 form button {
   position: absolute;
   right: 0;
+}
+
+button[disabled] {
+  background-color: #f9e39f;
 }
 
 #resultsContainer {

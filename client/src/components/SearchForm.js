@@ -9,7 +9,7 @@ function SearchForm(props) {
                 <br></br>
                 <input type="text" name="bookInput" id="bookInput" form="bookSearch" onChange={(e) => props.handleChange(e)} placeholder="Book Title" required/>
                 <br></br>
-                <button type="submit" onClick={(e) => props.handleClick(e)}>Search</button>
+                <button type="submit" onClick={(e) => props.handleSearchClick(e)}>Search</button>
             </form>
         </div>
     );
