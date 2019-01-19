@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 
 const mongoose = require("mongoose");
 // for deployment heroku_68557x0b
-mongoose.connect("mongodb://heroku_68557x0b/googlebooks", {useNewUrlParser: true})
+mongoose.connect("mongodb://@ds261114.mlab.com:61114/heroku_68557x0b", {useNewUrlParser: true})
   .then(() => {
     console.log("🗄 ==> Successfully connected to mongoDB.");
   })
