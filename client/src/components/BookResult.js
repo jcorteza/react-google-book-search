@@ -51,7 +51,7 @@ class BookResult extends React.Component {
 
     render() {
         return(
-            <div className="bookResult" id={(this.props.id)? this.props.id: null}>
+            <div className="bookResult" id={(this.props.id)? this.props.id: null} style={{display: this.state.deleted? "none" : "block"}}>
                 <div className="row">
                     <div className="aboutBook">
                         <h4>{this.props.title}</h4>
