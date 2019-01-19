@@ -20,7 +20,7 @@ function ResultsContainer(props) {
             </div>
         );
     } else if(props.path === "/saved") {
-        if(props.savedBooks.length > 0) {
+        if(props.savedBooks !== []) {
             return(
                 <div id="resultsContainer">
                     <h3>Saved Books</h3>
