@@ -5,14 +5,8 @@ const BookSchema = new Schema({
     title: String,
     authors: [String],
     description: String,
-    img: {
-        type: {String},
-        match: /(http(s)?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}(\.[a-z]{2,6})?\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi
-    },
-    link: {
-        type: String,
-        match: /(http(s)?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}(\.[a-z]{2,6})?\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gi
-    }
+    img: {String},
+    link: String
 });
 
 const Book = mongoose.model("Book", BookSchema);
